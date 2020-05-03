@@ -1,0 +1,59 @@
+{
+  "name": "api_simplapp",
+  "version": "1.0.0",
+  "description": "Api experimental solo para probar mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "webpack": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hanspetercastellar/simplapp.git"
+  },
+  "author": "Hans Castellar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanspetercastellar/simplapp/issues"
+  },
+  "homepage": "https://github.com/hanspetercastellar/simplapp#readme",
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "apollo-server-express": "^2.12.0",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
+    "graphql": "^15.0.0",
+    "graphql-tools": "^5.0.0",
+    "jwt-simple": "^0.5.6",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/node": "^7.8.7",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.3",
+    "npm-check-updates": "^4.1.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

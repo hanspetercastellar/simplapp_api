@@ -1,23 +1,13 @@
 const express = require('express'); 
 const router = express.Router();
 
-const Tenant = require('../models/Tenants')
 
-router.get('/', async (req, res) => {
+//import Controllers
+const { renderMain ,getProducts} = require('../controllers/main.controlle')
 
-     const users = await Tenant.find();
+router.get('/', getProducts)
 
-     console.log(users)
-    res.json(users)
-})
-
-router.post('/', async (req, res) => {
-    const { name,address,email,active} = req.body
-    const tenant = new Tenant({ name,address,email,active})
-    await tenant.save();
-    console.log(tenant)
-    res.json({"status":"success"})
-})
+router.post('/', renderMain)
 
 router.put('/:id', async (req, res) => {
     const {name,address,email,active} = req.body;

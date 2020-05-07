@@ -1,11 +1,12 @@
 const express = require('express'); 
 const router = express.Router();
+const { acountValidate } = require("../middlewares/auth");
 
 
 //import Controllers
 const { renderMain ,getProducts} = require('../controllers/main.controlle')
 
-router.get('/', getProducts)
+router.get('/', acountValidate(), getProducts);
 
 router.post('/', renderMain)
 

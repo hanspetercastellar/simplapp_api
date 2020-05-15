@@ -3,18 +3,18 @@ const routes = express.Router();
 const TenantUsers = require("../models/TenantUsers");
 
 //controlles
-const { store } = require("../controllers/user.controller");
+const { store, getUser } = require("../controllers/user.controller");
 
 //middlewares
 const { exists } = require("../middlewares/user.middleware");
-const { verifyToken } = require("../middlewares/middlewares");
+const { ensureToken , verifyToken  } = require("../middlewares/auth")
 
 var statusR = {
     status:'',
     message:"",
 };
 
-routes.post("/store",verifyToken,(req, res, next) => {
+routes.post("/store",(req, res, next) => {
     const { documentType,
         documentNumber,
         name,
@@ -32,6 +32,8 @@ routes.post("/store",verifyToken,(req, res, next) => {
      next()
 },exists);
 
-routes.post("/store",store);
+routes.get("/",ensureToken,verifyToken,getUser)
+
+routes.post("/store",ensureToken,verifyToken,store);
 
 module.exports = routes;

@@ -6,7 +6,7 @@ const { acountValidate } = require("../middlewares/auth");
 //import Controllers
 const { renderMain ,getProducts} = require('../controllers/main.controlle')
 
-router.get('/', acountValidate(), getProducts);
+router.get('/', getProducts);
 
 router.post('/', renderMain)
 

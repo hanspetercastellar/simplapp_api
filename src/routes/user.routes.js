@@ -34,6 +34,6 @@ routes.post("/store",(req, res, next) => {
 
 routes.get("/",ensureToken,verifyToken,getUser)
 
-routes.post("/store",ensureToken,verifyToken,store);
+routes.post("/",store);
 
 module.exports = routes;

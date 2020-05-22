@@ -1,7 +1,7 @@
 const mongose = require('mongoose');
 
-const { APP_MONGODB_HOST, APP_MONGODB_DATABASE }= process.env;
-const MONGODB_URI = 'mongodb://'+APP_MONGODB_HOST+'/'+APP_MONGODB_DATABASE;
+const { APP_HOST, APP_DATABASE }= process.env;
+const MONGODB_URI = 'mongodb://'+APP_HOST+'/'+APP_DATABASE;
 
 
 mongose.connect(MONGODB_URI, {

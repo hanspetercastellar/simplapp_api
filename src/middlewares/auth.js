@@ -13,7 +13,7 @@ const auth = {
             req.token = bearerToken;
             next()
         }else{
-            res.status(403).json({token:false,message:"No existe un token"})
+            res.status(403).json({token:false,message:"Forbidden, No existe un token"})
         }
     },
     verifyToken(req, res, next){

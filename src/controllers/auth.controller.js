@@ -14,7 +14,7 @@ module.exports = {
         const user = await TenantUsers.findOne({
             email:req.body.email
         });
-       
+   
         if(user){
             let tenants =  await Tenant.findById(
                 user.tenantId
@@ -29,9 +29,10 @@ module.exports = {
             }
             res.json({"auth":true,user,tenants,token});
         }else{
-            res.json({"status":"404","message":"El usuario no existe"})
+            res.status(404).json({"status":"404","message":"El usuario no existe"})
         }
     },
+    //
     passporLogin(req, res, next) {
         passport.authenticate('local', function(err, user, info) {
             if (err) { return next(err); }

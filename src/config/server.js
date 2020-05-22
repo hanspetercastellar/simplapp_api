@@ -12,10 +12,10 @@ const passportLocalMongoose = require("passport-local-mongoose")
 // Initializations
 const app = express();
 require("../config/passport")
-const config = require("../config/config");
+const config = require("./config");
 
 //Settings 
-app.set('port', process.env.PORT  || 5000);
+app.set('port', process.env.PORT  || 3002);
 app.set('views', path.join(__dirname,'views'));
 
 //Middlewares
@@ -44,16 +44,12 @@ app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success")
     res.locals.error =req.flash("error")
     res.locals.user = req.user || null;
-    console.log(req.body)
     next()
 })
 
 //Routes
-app.use('/api/auth/', require('../routes/auth.routes'));
-app.use('/api/user/', require('../routes/user.routes'));
-app.use('/api/products/', require('../routes/main.routes'));
-app.use('/api/tenant/', require('../routes/tenant.routes'));
-app.use('/api/client/', require('../routes/client.routes'));
+app.use(require('../routes/routes'));
+
 
 //Static Files
 app.use(express.static(path.join(__dirname,'../public')));

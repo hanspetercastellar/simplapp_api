@@ -9,4 +9,4 @@ const TenantSchema = new Schema({
     timestamps: true
 });
 
-module.exports  = model('tenant',TenantSchema)
+module.exports  = model('tenants',TenantSchema)

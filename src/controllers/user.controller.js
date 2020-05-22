@@ -1,9 +1,17 @@
 const TenantUsers = require ("../models/TenantUsers");
 const Users = new TenantUsers;
 
+
 module.exports = {
     async store(req, res){
-        console.log(req.body)
+      
+        let exists = await  TenantUsers.findOne({email:req.email})
+        
+        if(exists){
+            return res.json(
+                { status:true, messaje:"El Usuario Ya existe en la base de datos"}
+            )
+        }
         var { documentType,
             documentNumber,
             name,
@@ -23,8 +31,12 @@ module.exports = {
             password,
             tenantId
         });
-
-        await user.save();
+        try {
+           await user.save();
+        } catch (e){
+            res.json(e)
+        }
+        
         res.json(user)
     },
     async getUser(req, res){
